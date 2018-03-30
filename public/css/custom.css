@@ -1,0 +1,13 @@
+table {
+
+
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+td, th {
+    width : 10%;    
+}
+.panel-body span {
+    text-decoration : underline;
+}
