@@ -48,7 +48,15 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        return "hola mudn";
+        // $user = new User();
+        // $user->$request->name;
+        // $user->$request->phone;
+        // $user->$request->email;
+        // $user->$request->user_active;
+        // $user->save();
+
+        // return view('home');
+        return $request;
     }
 
     /**

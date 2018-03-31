@@ -1,16 +1,21 @@
-$(document).ready($('input').prop('readonly', true))
+$(document).ready($('#innerform input').prop('readonly', true))
     
 
 $("#edit").click(function(event){
     event.preventDefault();
-    if(($('input').prop('readonly'))){
-    $('input').prop('readonly', false);
-    $('input').prop('disabled', false);
+    if(($('#innerform input').prop('readonly'))){
+    $('#innerform input').prop('readonly', false);
+    $('#innerform input').prop('disabled', false);
     }
     else   {
-    $('input').prop('readonly', true);
-    $('input').prop('disabled', true);
+    $('#innerform input').prop('readonly', true);
+    $('#innerform input').prop('disabled', true);
     
     }
 
 });
+
+function mostrar(){
+
+    $('#newform').toggleClass('nuevoUsuario');
+}

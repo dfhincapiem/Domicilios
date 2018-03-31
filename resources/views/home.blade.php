@@ -39,26 +39,24 @@
                         </table>
                         
                         @foreach($users as $user)
-                            <form action="{{route('home.update', $user->id)}}" method="POST">
+                            <form id="innerform" action="{{route('home.update', $user->id)}}" method="POST">
                                     {!! method_field('PUT') !!}
-                                <table class="table">
+                                <table class="table" >
 
                                     <tbody>
                                         <tr>
-                                <td class="col-md-1" scope="row">{{ $user->id }}</td></th>                                
-                                <td class="col-md-1"><input readonly class="form-control" type="text" name="name" value="{{ $user->name }}" ></td>
-                                <td class="col-md-1"><input readonly class="form-control" type="text" id="phone" name="phone" value="{{ $user->phone }}" ></td>
-                                <td class="col-md-2"> <input readonly class="form-control" type="text" name="email" value="{{ $user->email }}" ></td>
-                                <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('User') ? 'checked' : '' }} name="role_user"></td>
-                                <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('Agent') ? 'checked' : '' }} name="role_agent"></td>
-                                <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('Admin') ? 'checked' : '' }} name="role_admin"></td>
-                                <td class="col-md-1"><input disabled type="checkbox" {{ $user->user_active ? 'checked' : '' }} name="user_active"></td>
-                                {{ csrf_field() }}
-                                <td class="col-md-1"><button type="submit" value="{{ $user->id }}" form="{{ $user->id }}">Del</button></td>
-                                <td class="col-md-1"><button id="edit" onclick="remove()">Edit</button></td>
-                                <td class="col-md-1"><button type="submit" value="{{ $user->id }}">Save</button></td>
-                                
-                                
+                                            <td class="col-md-1" scope="row">{{ $user->id }}</td></th>                                
+                                            <td class="col-md-1"><input readonly class="form-control" type="text" name="name" value="{{ $user->name }}" ></td>
+                                            <td class="col-md-1"><input readonly class="form-control" type="text" id="phone" name="phone" value="{{ $user->phone }}" ></td>
+                                            <td class="col-md-2"> <input readonly class="form-control" type="text" name="email" value="{{ $user->email }}" ></td>
+                                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('User') ? 'checked' : '' }} name="role_user"></td>
+                                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('Agent') ? 'checked' : '' }} name="role_agent"></td>
+                                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('Admin') ? 'checked' : '' }} name="role_admin"></td>
+                                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->user_active ? 'checked' : '' }} name="user_active"></td>
+                                            {{ csrf_field() }}
+                                            <td class="col-md-1"><button type="submit" value="{{ $user->id }}" form="{{ $user->id }}">Del</button></td>
+                                            <td class="col-md-1"><button id="edit" onclick="remove()">Edit</button></td>
+                                            <td class="col-md-1"><button type="submit" value="{{ $user->id }}">Save</button></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -71,39 +69,33 @@
                      
                         @endforeach
                         <button onclick="mostrar()">Crear Usuario</button>
-                        <form class="nuevousuario" action="{{route('home.update', $user->id)}}" method="POST">
-                                {!! method_field('PUT') !!}
-                            <table class="table">
+                        <form id="newform" class="nuevoUsuario" action="{{route('home.store')}}" method="POST">
 
+                            <table class="table">
                                 <tbody>
                                     <tr>
-                            <td class="col-md-1" scope="row">{{ $user->id }}</td></th>                                
-                            <td class="col-md-1"><input readonly class="form-control" type="text" name="name" value="{{ $user->name }}" ></td>
-                            <td class="col-md-1"><input readonly class="form-control" type="text" id="phone" name="phone" value="{{ $user->phone }}" ></td>
-                            <td class="col-md-2"> <input readonly class="form-control" type="text" name="email" value="{{ $user->email }}" ></td>
-                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('User') ? 'checked' : '' }} name="role_user"></td>
-                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('Agent') ? 'checked' : '' }} name="role_agent"></td>
-                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('Admin') ? 'checked' : '' }} name="role_admin"></td>
-                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->user_active ? 'checked' : '' }} name="user_active"></td>
-                            {{ csrf_field() }}
-                            <td class="col-md-1"><button type="submit" value="{{ $user->id }}" form="{{ $user->id }}">Del</button></td>
-                            <td class="col-md-1"><button id="edit" onclick="remove()">Edit</button></td>
-                            <td class="col-md-1"><button type="submit" value="{{ $user->id }}">Save</button></td>
-                            
-                            
+                                        <td class="col-md-1" scope="row"></td></th>                                
+                                        <td class="col-md-1"><input required class="form-control" type="text" name="name" ></td>
+                                        <td class="col-md-1"><input required class="form-control" type="text" id="phone" name="phone" ></td>
+                                        <td class="col-md-2"> <input required class="form-control" type="email" name="email" ></td>
+                                        <td class="col-md-1"><input  type="radio" name="role"></td>
+                                        <td class="col-md-1"><input  type="radio"  name="role"></td>
+                                        <td class="col-md-1"><input  type="radio"  name="role"></td>
+                                        <td class="col-md-1"><input  type="checkbox" name="user_active"></td>
+                                        {{ csrf_field() }}
+                                        <td class="col-md-3"><button type="submit" value="{{ $user->id }}">Create</button></td>
                                     </tr>
                                 </tbody>
                             </table>
-                        </form>
-                            
-                    @endif
-            
-                        
-                  
-           
+                        </form>                            
+                    @endif         
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script src="{{ asset('js/custom.js') }}"></script>
 @endsection
