@@ -19,4 +19,14 @@ Auth::routes();
 
 //Route::get('/', 'HomeController@index')->name('home');
 //Route::get('/', 'HomeController@index')->name('home');
- Route::resource('', 'HomeController');
+ Route::resource('home', 'HomeController')->names([
+    'update' => 'home.update',
+    'index' => 'home.index',
+    'destroy' => 'home.destroy'
+]);
+// Route::resource('', 'HomeController');
+//  Route::get('/{}', 'HomeController@update');
+ //Route::post('/', 'HomeController@update')->name('home.update');
+//  Route::resource('', 'HomeController')->only([
+//      'index', 'update'
+//  ]);
