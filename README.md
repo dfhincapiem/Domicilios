@@ -39,6 +39,8 @@ CRUD PARA USUARIOS
 
 The core files I think it's the HomeController, because it involves all the CRUD operations for the admin user, and also the home template involves a lot of work related with the views just to determinated users, depending on the roles.
 
+The only external library I used was to connect with the API of Facebbok (Socialite) but wasn't able to complete that function.
+
 
 
 ```
