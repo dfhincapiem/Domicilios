@@ -50,6 +50,15 @@ class User extends Authenticatable
     
     }
 
+    public function isActive()
+    
+    {
+    
+      return $this->user_active;
+    
+    }
+
+
 
 
 
