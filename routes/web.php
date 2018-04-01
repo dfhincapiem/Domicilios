@@ -19,6 +19,8 @@ Auth::routes();
 
 //Route::get('/', 'HomeController@index')->name('home');
 //Route::get('/', 'HomeController@index')->name('home');
+
+
  Route::resource('home', 'HomeController')->names([
     'update' => 'home.update',
     'index' => 'home.index',
@@ -35,6 +37,6 @@ Route::resource('edit', 'EditController')->only([
 // Route::resource('', 'HomeController');
 //  Route::get('/{}', 'HomeController@update');
  //Route::post('/', 'HomeController@update')->name('home.update');
-//  Route::resource('', 'HomeController')->only([
-//      'index', 'update'
-//  ]);
+ Route::get('/', function(){
+    return redirect('home');
+ });

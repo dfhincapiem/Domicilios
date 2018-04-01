@@ -53,9 +53,7 @@ class HomeController extends Controller
         
         //$role_user->save();
         $role_user  = Role::where("name", $request->role)->first();
-       // return (string)Role::where("name", (string)$request->role)->first();
-        
-//        return gettype($request->role);
+
         $user = new User();
         $user->name=$request->name;
         $user->phone=$request->phone;
