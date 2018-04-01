@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use Auth;
 
 class EditController extends Controller
 {
@@ -15,9 +16,9 @@ class EditController extends Controller
      */
     public function index()
     {
-   
+        $user = Auth::user();
 
-        return view('edit', ['user' => $this]);
+        return view('edit', ['user' => $user]);
     }
 
     /**
@@ -72,7 +73,16 @@ class EditController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //$role_user  = Role::where("name", $request->role)->first();        
+        $user = User::find($id);
+        $user->name=$request->name;
+        $user->phone=$request->phone;
+        $user->email=$request->email;
+
+        $user->save();
+
+        return redirect()->action('EditController@index');
+        
     }
 
     /**

@@ -26,10 +26,11 @@ Auth::routes();
 ]);
 
 Route::resource('edit', 'EditController')->only([
-         'index'
+         'index', 'update'
      ])->names([
 
-    'index' => 'edit.index'
+    'index' => 'edit.index',
+    'update' => 'edit.update'
 ]);
 // Route::resource('', 'HomeController');
 //  Route::get('/{}', 'HomeController@update');
