@@ -8,7 +8,8 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                    <h3>Once your account is created, </br><span style="text-decoration:underlined;">it needs to be activated by an Admon</span></h3>
+                    <form  onsubmit="return alert('Once the account is create, needs to be activated by an Admon');" class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -43,7 +44,7 @@
                                 <label for="phone" class="col-md-4 control-label">Phone Number</label>
     
                                 <div class="col-md-6">
-                                    <input id="phone" type="phone" class="form-control" name="phone" value="{{ old('phone') }}" required>
+                                    <input id="phone" type="phone" class="form-control" name="phone" value="{{ old('phone') }}" >
     
                                     @if ($errors->has('phone'))
                                         <span class="help-block">
@@ -79,7 +80,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit"  class="btn btn-primary">
                                     Register
                                 </button>
                             </div>

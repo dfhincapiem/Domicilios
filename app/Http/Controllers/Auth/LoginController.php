@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 
-use App\User;
+use Domicilios\User;
 
 class LoginController extends Controller
 {
@@ -52,8 +52,8 @@ class LoginController extends Controller
         $user = User::where($this->username(), $request->{$this->username()})->first();
         // Check if user was successfully loaded, that the password matches
         // and active is not 1. If so, override the default error message.
-        if ($user && \Hash::check($request->password, $user->password) && $user->active != 1) {
-            $errors = [$this->username() => 'Your account is not active.'];
+        if ($user && \Hash::check($request->password, $user->password) && $user->user_active != 1) {
+            $errors = [$this->username() => 'Your account is not active. Ask your Admon'];
         }
         if ($request->expectsJson()) {
             return response()->json($errors, 422);
