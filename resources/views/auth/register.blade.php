@@ -43,7 +43,7 @@
                                 <label for="phone" class="col-md-4 control-label">Phone Number</label>
     
                                 <div class="col-md-6">
-                                    <input id="email" type="phone" class="form-control" name="phone" value="{{ old('phone') }}" required>
+                                    <input id="phone" type="phone" class="form-control" name="phone" value="{{ old('phone') }}" required>
     
                                     @if ($errors->has('phone'))
                                         <span class="help-block">
@@ -75,6 +75,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
