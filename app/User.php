@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Domicilios;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -16,7 +16,7 @@ class User extends Authenticatable
      */
     public function roles(){
 
-        //return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
+        //return $this->belongsToMany('Domicilios\Role', 'role_user', 'user_id', 'role_id');
         return $this->belongsToMany(Role::class);
     }
   

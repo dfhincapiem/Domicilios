@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Domicilios\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
-use App\Role;
+use Domicilios\User;
+use Domicilios\Role;
 
 
 class HomeController extends Controller

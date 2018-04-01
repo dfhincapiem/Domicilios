@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Domicilios\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
+use Domicilios\User;
 use Auth;
 
 class EditController extends Controller

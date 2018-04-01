@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Domicilios;
 
 use Illuminate\Database\Eloquent\Model;
 
