@@ -18,7 +18,15 @@
                     AT THE TOP OF THE PAGE
                     </br>
                     </br>
+
+                 
+
                     @if(Auth::user()->hasRole('admin'))
+                        @if ($errors->has('email'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('email') }}</strong>
+                                        </span>
+                        @endif
                         <table class="table">
                             <thead>
                                 <tr>

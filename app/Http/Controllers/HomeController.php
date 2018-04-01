@@ -49,7 +49,10 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-
+        $validatedData = $request->validate([
+            'email' => 'required|string|email|max:255|unique:users',
+       
+        ]);
         
         //$role_user->save();
         $role_user  = Role::where("name", $request->role)->first();
@@ -104,6 +107,12 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $validatedData = $request->validate([
+            'email' => 'required|string|email|max:255|unique:users',
+       
+        ]);
+    
         $role_user  = Role::where("name", $request->role)->first();        
         $user = User::find($id);
         $user->name=$request->name;
