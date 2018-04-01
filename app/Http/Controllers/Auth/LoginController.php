@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 
-use Domicilios\User;
+use App\User;
 
 class LoginController extends Controller
 {
