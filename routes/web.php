@@ -24,6 +24,13 @@ Auth::routes();
     'index' => 'home.index',
     'destroy' => 'home.destroy'
 ]);
+
+Route::resource('edit', 'EditController')->only([
+         'index'
+     ])->names([
+
+    'index' => 'edit.index'
+]);
 // Route::resource('', 'HomeController');
 //  Route::get('/{}', 'HomeController@update');
  //Route::post('/', 'HomeController@update')->name('home.update');

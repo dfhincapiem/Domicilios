@@ -26,7 +26,7 @@
                                     <th class="col-md-1">Name</th>
                                     <th class="col-md-1">Phone</th>
                                     <th class="col-md-2">E-Mail</th>
-                                    <th class="col-md-1">User</th>
+                                    <th class="col-md-1">Customer</th>
                                     <th class="col-md-1">Agent</th>
                                     <th class="col-md-1">Admin</th>
                                     <th class="col-md-1">Is Active?</th>
@@ -39,9 +39,10 @@
                         </table>
                         
                         @foreach($users as $user)
-                            <form id="innerform" action="{{route('home.update', $user->id)}}" method="POST">
+                            <form class="innerform" id="innerform{{$user->id}}" action="{{route('home.update', $user->id)}}" method="POST">
                                     {!! method_field('PUT') !!}
                                 <table class="table" >
+                                
 
                                     <tbody>
                                         <tr>
@@ -49,13 +50,13 @@
                                             <td class="col-md-1"><input readonly class="form-control" type="text" name="name" value="{{ $user->name }}" ></td>
                                             <td class="col-md-1"><input readonly class="form-control" type="text" id="phone" name="phone" value="{{ $user->phone }}" ></td>
                                             <td class="col-md-2"> <input readonly class="form-control" type="text" name="email" value="{{ $user->email }}" ></td>
-                                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('User') ? 'checked' : '' }} name="role_user"></td>
-                                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('Agent') ? 'checked' : '' }} name="role_agent"></td>
-                                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->hasRole('Admin') ? 'checked' : '' }} name="role_admin"></td>
+                                            <td class="col-md-1"><input disabled type="radio" {{ $user->hasRole('user') ? 'checked' : '' }} value="user" name="role"></td>
+                                            <td class="col-md-1"><input disabled type="radio" {{ $user->hasRole('agent') ? 'checked' : '' }} value="agent" name="role"></td>
+                                            <td class="col-md-1"><input disabled type="radio" {{ $user->hasRole('admin') ? 'checked' : '' }} value="admin" name="role"></td>
                                             <td class="col-md-1"><input disabled type="checkbox" {{ $user->user_active ? 'checked' : '' }} name="user_active"></td>
                                             {{ csrf_field() }}
                                             <td class="col-md-1"><button type="submit" value="{{ $user->id }}" form="{{ $user->id }}">Del</button></td>
-                                            <td class="col-md-1"><button id="edit" onclick="remove()">Edit</button></td>
+                                            <td class="col-md-1"><button id="edit" onclick="remove({{$user->id}})" type="button">Edit</button></td>
                                             <td class="col-md-1"><button type="submit" value="{{ $user->id }}">Save</button></td>
                                         </tr>
                                     </tbody>
@@ -74,14 +75,14 @@
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <td class="col-md-1" scope="row"></td></th>                                
-                                        <td class="col-md-1"><input required class="form-control" type="text" name="name" ></td>
-                                        <td class="col-md-1"><input required class="form-control" type="text" id="phone" name="phone" ></td>
-                                        <td class="col-md-2"> <input required class="form-control" type="email" name="email" ></td>
-                                        <td class="col-md-1"><input  type="radio" name="role"></td>
-                                        <td class="col-md-1"><input  type="radio"  name="role"></td>
-                                        <td class="col-md-1"><input  type="radio"  name="role"></td>
-                                        <td class="col-md-1"><input  type="checkbox" name="user_active"></td>
+                                        <td class="col-md-1" scope="row"><input placeholder="Password"  class="form-control" type="password" name="password" ></td></th>                                
+                                        <td class="col-md-1"><input placeholder="Name"  class="form-control" type="text" name="name" ></td>
+                                        <td class="col-md-1"><input placeholder="Phone"  class="form-control" type="text" id="phone" name="phone" ></td>
+                                        <td class="col-md-2"> <input placeholder="Email"  class="form-control" type="email" name="email" ></td>
+                                        <td class="col-md-1"><input checked required type="radio" value="customer" name="role"></td>
+                                        <td class="col-md-1"><input   type="radio" value="agent" name="role"></td>
+                                        <td class="col-md-1"><input  type="radio" value="admin" name="role"></td>
+                                        <td class="col-md-1"><input value="true" type="checkbox" name="user_active" checked></td>
                                         {{ csrf_field() }}
                                         <td class="col-md-3"><button type="submit" value="{{ $user->id }}">Create</button></td>
                                     </tr>

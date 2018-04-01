@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Role;
 
 
 class HomeController extends Controller
@@ -48,15 +49,30 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        // $user = new User();
-        // $user->$request->name;
-        // $user->$request->phone;
-        // $user->$request->email;
-        // $user->$request->user_active;
-        // $user->save();
 
-        // return view('home');
-        return $request;
+        
+        //$role_user->save();
+        $role_user  = Role::where("name", $request->role)->first();
+       // return (string)Role::where("name", (string)$request->role)->first();
+        
+//        return gettype($request->role);
+        $user = new User();
+        $user->name=$request->name;
+        $user->phone=$request->phone;
+        $user->email=$request->email;
+        $user->password=bcrypt($request->password);       
+        $user->user_active=true;
+        if($request->user_active!=true)
+        $user->user_active=false;
+        $user->save();
+        $user->roles()->attach($role_user);
+
+
+
+       
+        return redirect()->action('HomeController@index');
+
+        // return $request+'admin' ;
     }
 
     /**
@@ -90,7 +106,18 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return $request;
+        $role_user  = Role::where("name", $request->role)->first();        
+        $user = User::find($id);
+        $user->name=$request->name;
+        $user->phone=$request->phone;
+        $user->email=$request->email;
+        $user->user_active=true;
+        if($request->user_active!=true)
+        $user->user_active=false;
+        $user->save();
+        $user->roles()->attach($role_user);    
+        $user->save();  
+        return redirect()->action('HomeController@index');
     }
 
     /**

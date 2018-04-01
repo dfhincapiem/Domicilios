@@ -17,9 +17,11 @@ class RoleTableSeeder extends Seeder
         $role_user->name = "customer";
         $role_user->description = "Customer User";
         $role_user->save();
+        $role_user = new App\Role();
         $role_user->name = "agent";
         $role_user->description = "Agent User";
         $role_user->save();  
+        $role_user = new App\Role();
         $role_user->name = "admin";
         $role_user->description = "Admin User";
         $role_user->save();
