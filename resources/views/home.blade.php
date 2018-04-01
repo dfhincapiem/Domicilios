@@ -47,13 +47,13 @@
                                     <tbody>
                                         <tr>
                                             <td class="col-md-1" scope="row">{{ $user->id }}</td></th>                                
-                                            <td class="col-md-1"><input readonly class="form-control" type="text" name="name" value="{{ $user->name }}" ></td>
-                                            <td class="col-md-1"><input readonly class="form-control" type="text" id="phone" name="phone" value="{{ $user->phone }}" ></td>
-                                            <td class="col-md-2"> <input readonly class="form-control" type="mail" name="email" value="{{ $user->email }}" ></td>
-                                            <td class="col-md-1"><input disabled type="radio" {{ $user->hasRole('customer') ? 'checked' : '' }} value="customer" name="role"></td>
-                                            <td class="col-md-1"><input disabled type="radio" {{ $user->hasRole('agent') ? 'checked' : '' }} value="agent" name="role"></td>
-                                            <td class="col-md-1"><input disabled type="radio" {{ $user->hasRole('admin') ? 'checked' : '' }} value="admin" name="role"></td>
-                                            <td class="col-md-1"><input disabled type="checkbox" {{ $user->user_active ? 'checked' : '' }} name="user_active"></td>
+                                            <td class="col-md-1"><input readonly class="forminput form-control" type="text" name="name" value="{{ $user->name }}" ></td>
+                                            <td class="col-md-1"><input readonly class="forminput  form-control" type="text" id="phone" name="phone" value="{{ $user->phone }}" ></td>
+                                            <td class="col-md-2"> <input readonly class="forminput form-control" type="mail" name="email" value="{{ $user->email }}" ></td>
+                                            <td class="col-md-1"><input disabled class="formselect" type="radio" {{ $user->hasRole('customer') ? 'checked' : '' }} value="customer" name="role"></td>
+                                            <td class="col-md-1"><input disabled class="formselect" type="radio" {{ $user->hasRole('agent') ? 'checked' : '' }} value="agent" name="role"></td>
+                                            <td class="col-md-1"><input disabled class="formselect" type="radio" {{ $user->hasRole('admin') ? 'checked' : '' }} value="admin" name="role"></td>
+                                            <td class="col-md-1"><input disabled class="formselect" type="checkbox" {{ $user->user_active ? 'checked' : '' }} name="user_active"></td>
                                             {{ csrf_field() }}
                                             <td class="col-md-1"><button class="btn btn-danger" type="submit" value="{{ $user->id }}" form="{{ $user->id }}">Del</button></td>
                                             <td class="col-md-1"><button class="btn btn-warning" id="edit" onclick="remove({{$user->id}})" type="button">Edit</button></td>

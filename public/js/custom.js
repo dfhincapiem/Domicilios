@@ -1,4 +1,8 @@
-$(document).ready($('.innerform input').prop('readonly', true))
+$(document).ready(
+    
+    $('.innerform .userform').prop('readonly', true)
+
+)
     
 
 // $("#edit").click(function(event){
@@ -22,15 +26,18 @@ function mostrar(){
 
 function remove(e){
     
-        var tag = "#innerform"+e+" input";
+        var tag2 = "#innerform"+e+" .formselect";
+        var tag = "#innerform"+e+" .forminput";
+        
+        
     
         if(($(tag).prop('readonly'))){
             $(tag).prop('readonly', false);
-            $(tag).prop('disabled', false);
+            $(tag2).prop('disabled', false);
             }
             else   {
             $(tag).prop('readonly', true);
-            $(tag).prop('disabled', true);
+            $(tag2).prop('disabled', true);
             
             }
     
